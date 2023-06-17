@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration | Chess Training Academy</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@<version>/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@<version>/examples/jsm/"
+        }
+      }
+    </script>
+    
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo"><a href="index.html">Chess Academy</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="registration.html">Registration</a></li>
+                <li><a href="payment.html">Payment</a></li>
+            </ul>
+        </nav>      
+    </header>
+        <section class="page-content">
+      <h1>User Registration</h1>
+      
+      <form id="registration-form" action="C:\xampp\htdocs\php-01\data.php" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <button type="submit" value="Submission">Register</button>
+      </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2023 Chess Academy. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chess Training Academy</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <script src="script.js"></script> -->
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@<version>/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@<version>/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <img class="navbar-logo" src="logo.png" alt="Chess Academy Logo">
+            <div class="navbar-toggle" onclick="toggleMenu()">&#9776;</div>
+            <ul class="navbar-nav" id="navbarNav">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#courses">Courses</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+        
+            <!-- Mobile overlay and popup -->
+            <div class="navbar-overlay" onclick="toggleMenu()"></div>
+            <div class="navbar-popup">
+              <div class="navbar-exit" onclick="toggleMenu()">&times;</div>
+              <ul class="navbar-popup-nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+          </nav>
+        
+         <!-- JavaScript to toggle the menu -->
+         <script>
+            function toggleMenu() {
+             var navbarNav = document.getElementById("navbarNav");
+             var navbarOverlay = document.querySelector(".navbar-overlay");
+             var navbarPopup = document.querySelector(".navbar-popup");
+       
+             navbarNav.classList.toggle("show");
+             navbarOverlay.classList.toggle("show");
+             navbarPopup.classList.toggle("show");
+           }
+            </script> 
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Chess Training Academy</h1>
+    
+        
+            <h3 id="ab">&nbsp &nbsp &nbsp Master the game of chess with our expert trainers.</h3>
+            
+        <a href="registration.html" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+
+    <section class="features">
+        <div class="feature">
+            <img src="chess-piece.jpg" alt="Chess Piece">
+            <h2>Learn from Grandmasters</h2>
+            <p>Our academy offers training programs conducted by experienced grandmasters.</p>
+        </div>
+        <div class="feature">
+            <img src="chess-clock.jpg" alt="Chess Clock">
+            <h2>Improve Your Strategy</h2>
+            <p>Develop and enhance your chess strategies with our comprehensive training materials.</p>
+        </div>
+        <div class="feature">
+            <img src="chess-trophy.jpg" alt="Chess Trophy">
+            <h2>Achieve Success</h2>
+            <p>Join our academy and achieve success in local and international chess tournaments.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Chess Academy. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
