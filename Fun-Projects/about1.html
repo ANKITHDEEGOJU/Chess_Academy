@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Training Academy</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            width: 50px;
+        }
+
+        .navbar-toggle {
+            display: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .navbar-nav li a {
+            color: #f9f9f9;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            color: #f44336;
+        }
+
+        /* Mobile Menu Styles */
+        .navbar-overlay {
+            display: none;
+        }
+
+        .navbar-popup {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            padding: 20px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .navbar-popup-nav li a {
+            color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 10px 20px;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-popup-nav li a:hover {
+            background-color: #f44336;
+            color: #333;
+        }
+
+        /* Page Content Styles */
+        .page-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            margin-bottom: 20px;
+        }
+
+        .about-heading {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-text {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            padding: 20px 0;
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar-nav {
+                display: none;
+            }
+
+            .navbar-toggle {
+                display: block;
+                font-size: 24px;
+                color: #f9f9f9;
+                cursor: pointer;
+            }
+
+            .navbar-popup-nav li a {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .navbar-overlay.show {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1;
+            }
+
+            .navbar-popup.show {
+                display: block;
+            }
+
+            .page-content {
+                margin-top: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div>
+                <a href="#"><img src="https://example.com/logo.png" alt="Logo" class="navbar-logo"></a>
+            </div>
+            <div class="navbar-toggle" onclick="toggleMenu()">
+                &#9776;
+            </div>
+            <div class="navbar-nav" id="navbarNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="navbar-overlay" onclick="toggleMenu()"></div>
+        <div class="navbar-popup">
+            <ul class="navbar-popup-nav">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- JavaScript to toggle the menu -->
+        <script>
+            function toggleMenu() {
+                var navbarNav = document.getElementById("navbarNav");
+                var navbarOverlay = document.querySelector(".navbar-overlay");
+                var navbarPopup = document.querySelector(".navbar-popup");
+
+                navbarNav.classList.toggle("show");
+                navbarOverlay.classList.toggle("show");
+                navbarPopup.classList.toggle("show");
+            }
+        </script>
+    </header>
+    <section class="page-content">
+        <div class="text-center">
+            <img src="https://example.com/profile-image.jpg" alt="Profile Image" class="profile-image">
+        </div>
+        <h1 class="about-heading">About Us</h1>
+        <p class="about-text">Chess Training Academy is dedicated to helping chess enthusiasts of all levels improve their skills and achieve their goals in the game of chess. With our experienced coaches and comprehensive training programs, we provide a nurturing and challenging environment for students to develop their strategic thinking, analytical abilities, and decision-making skills.</p>
+        <p class="about-text">Our academy offers a range of courses designed for beginners, intermediate players, and advanced chess enthusiasts. Whether you are just starting out or looking to take your game to the next level, we have a program tailored to your needs. Our courses cover various aspects of the game, including openings, middle game strategies, endgame techniques, and tactical puzzles.</p>
+        <p class="about-text">At Chess Training Academy, we believe that chess is not just a game but also a valuable tool for personal growth and cognitive development. It teaches important life skills such as patience, focus, problem-solving, and critical thinking. Our mission is to empower individuals through the game of chess and instill a love for lifelong learning.</p>
+    </section>
+    <footer>
+        <p>&copy; 2023 Chess Training Academy. All rights reserved.</p>
+    </footer>
+</body>
+</html>

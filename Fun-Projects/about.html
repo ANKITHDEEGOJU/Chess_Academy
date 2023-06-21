@@ -2,41 +2,278 @@
 <html>
 <head>
     <title>About | Chess Training Academy</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
-    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
-
-    <script type="importmap">
-      {
-        "imports": {
-          "three": "https://unpkg.com/three@<version>/build/three.module.js",
-          "three/addons/": "https://unpkg.com/three@<version>/examples/jsm/"
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.0/css/bootstrap.min.css">
+    <style>
+       body {
+            padding-top: 50px;
+            background-color: #f1f1f1;
+            background-image: url("https://images.pexels.com/photos/1040157/pexels-photo-1040157.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+            background-repeat: no-repeat;
+            background-size: 100px;
+            background-position: center;
         }
-      }
-    </script>
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+
+        .navbar-logo {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .navbar-toggle {
+            display: block;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 10px 20px;
+        }
+
+        .navbar-nav li {
+            margin-right: 20px;
+        }
+
+        .navbar-nav li a {
+            color: #f9f9f9;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-nav li a:hover {
+            background-color: #f44336;
+            color: #333;
+        }
+
+        .navbar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+
+        .navbar-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 80%;
+            max-width: 400px;
+            height: 100%;
+            background-color: #333;
+            padding: 20px;
+            z-index: 10000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar-popup.show {
+            transform: translateX(0);
+        }
+
+        .navbar-exit {
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .navbar-popup-nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-popup-nav li {
+            margin-bottom: 10px;
+        }
+
+        .navbar-popup-nav li a {
+            color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            padding: 10px 20px;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-popup-nav li a:hover {
+            background-color: #f44336;
+            color: #333;
+        }
+
+        .page-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .about-heading {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-text {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            background-color: #333;
+            padding: 20px 0;
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-toggle {
+                display: block;
+                font-size: 24px;
+                color: #fff;
+                cursor: pointer;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+
+            .navbar-nav {
+                display: none;
+            }
+
+            .navbar-overlay {
+                display: block;
+            }
+
+            .navbar-popup {
+                display: block;
+            }
+        }
+
+        #chess-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%;
+            overflow: hidden;
+        }
+
+        #chess-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+</style>
+
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li class="logo"><a href="index.html">Chess Academy</a></li>
+        <nav class="navbar">
+            <img class="navbar-logo" src="logo.png" alt="Chess Academy Logo">
+            <div class="navbar-toggle" onclick="toggleMenu()">&#9776;</div>
+            <ul class="navbar-nav" id="navbarNav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="#courses">Courses</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+        
+                    <!-- Mobile overlay and popup -->
+        <div class="navbar-overlay" onclick="toggleMenu()"></div>
+        <div class="navbar-popup">
+            <div class="navbar-exit" onclick="toggleMenu()">&times;</div>
+            <ul class="navbar-popup-nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="registration.html">Registration</a></li>
-                <li><a href="payment.html">Payment</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <section class="page-content">
-        <h1>About Us</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </section>
+    <!-- JavaScript to toggle the menu -->
+    <script>
+        function toggleMenu() {
+            var navbarNav = document.getElementById("navbarNav");
+            var navbarOverlay = document.querySelector(".navbar-overlay");
+            var navbarPopup = document.querySelector(".navbar-popup");
 
-    <footer>
-        <p>&copy; 2023 Chess Academy. All rights reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+            navbarNav.classList.toggle("show");
+            navbarOverlay.classList.toggle("show");
+            navbarPopup.classList.toggle("show");
+        }
+    </script>
+</header>
+<section class="page-content">
+    <div class="text-center">
+        <img src="https://w0.peakpx.com/wallpaper/714/332/HD-wallpaper-venom-marvel-spiderman-venom-venom-art-thumbnail.jpg" alt="Profile Image" class="profile-image">
+    </div>
+    <h1 class="about-heading">About Us</h1>
+    <p class="about-text">Chess Training Academy is dedicated to helping chess enthusiasts of all levels improve their skills and achieve their goals in the game of chess. With our experienced coaches and comprehensive training programs, we provide a nurturing and challenging environment for students to develop their strategic thinking, analytical abilities, and decision-making skills.</p>
+    <p class="about-text">Our academy offers a range of courses designed for beginners, intermediate players, and advanced chess enthusiasts. Whether you are just starting out or looking to take your game to the next level, we have a program tailored to your needs. Our courses cover various aspects of the game, including openings, middle game strategies, endgame techniques, and tactical puzzles.</p>
+    <p class="about-text">At Chess Training Academy, we believe that chess is not just a game but also a valuable tool for personal growth and development. It teaches discipline, patience, critical thinking, and the ability to make informed decisions under pressure. Our goal is to instill these qualities in our students and empower them with the skills needed to succeed both on and off the chessboard.</p>
+    <div id="chess-container">
+        <iframe src="chess-3d-module.html" frameborder="0"></iframe>
+    </div>
+</section>
+<footer>
+    <p>&copy; 2023 Chess Training Academy. All rights reserved. | Designed by Your Name</p>
+</footer>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.5.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
