@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chess Training Academy</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/x-icon"  href="favic.ico">
+    <script src="https://kit.fontawesome.com/ae042bd5e6.js" crossorigin="anonymous"></script>
+  </head>
+<body>
+    <header>
+        <nav class="navbar">
+            <img class="navbar-logo" src="logo.png" alt="Chess Academy Logo">
+            <div class="navbar-toggle" onclick="toggleMenu()">&#9776;</div>
+            <ul class="navbar-nav" id="navbarNav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="#courses">Courses</a></li>
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSerjZARbduZ9o_R7M6f2QBM2RFGrRhBm-kGVZBmQk8OJ126cw/viewform?usp=sf_link">Register</a></li>
+              <li><a href="signup.php">Sign up / Login</a></li>
+            </ul>
+        
+            <!-- Mobile overlay and popup -->
+            <div class="navbar-overlay" onclick="toggleMenu()"></div>
+            <div class="navbar-popup">
+              <div class="navbar-exit" onclick="toggleMenu()">&times;</div>
+              <ul class="navbar-popup-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSerjZARbduZ9o_R7M6f2QBM2RFGrRhBm-kGVZBmQk8OJ126cw/viewform?usp=sf_link">Register</a></li>
+                <li><a href="signup.php">Sign up / Login</a></li>
+              </ul>
+            </div>
+          </nav>
+        
+         <!-- JavaScript to toggle the menu -->
+         <script>
+            function toggleMenu() {
+             var navbarNav = document.getElementById("navbarNav");
+             var navbarOverlay = document.querySelector(".navbar-overlay");
+             var navbarPopup = document.querySelector(".navbar-popup");
+       
+             navbarNav.classList.toggle("show");
+             navbarOverlay.classList.toggle("show");
+             navbarPopup.classList.toggle("show");
+           }
+            </script> 
+    </header>
+
+    <section class="page-content">
+        <h1 style="padding-top:0%;">About Us</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </section>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>About Our Academy</title>
+      <style>
+        /* CSS Styles */
+        #about {
+          padding: 50px 0;
+          background-color: #f8f8f8;
+          text-align: center;
+        }
+    
+        .container {
+          max-width: 960px;
+          margin: 0 auto;
+        }
+    
+        h2 {
+          margin-bottom: 30px;
+          font-size: 24px;
+        }
+    
+        /* Founder Section */
+        .founder-section {
+          margin-bottom: 50px;
+        }
+    
+        .founder-section h3 {
+          font-size: 20px;
+          margin-bottom: 20px;
+        }
+    
+        .founder-image {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          margin-bottom: 10px;
+          object-fit: cover;
+        }
+    
+        /* Other Members Section */
+        .members-section {
+          margin-bottom: 50px;
+        }
+    
+        .members-section h3 {
+          font-size: 20px;
+          margin-bottom: 20px;
+        }
+    
+        .member-column {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+    
+        .member-image {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          margin-right: 10px;
+          object-fit: cover;
+        }
+    
+        /* Testimonials and Achievements Slider */
+        .slider-container {
+          max-width: 800px;
+          margin: 0 auto;
+          overflow: hidden;
+        }
+    
+        .slider {
+          display: flex;
+          animation: slide 15s infinite;
+        }
+    
+        .slide {
+          flex: 0 0 33.33%;
+          padding: 0 10px;
+          text-align: center;
+        }
+    
+        @keyframes slide {
+          0% { transform: translateX(0); }
+          33.33% { transform: translateX(-100%); }
+          66.66% { transform: translateX(-200%); }
+        }
+      </style>
+    </head>
+    <body>
+      <section id="about">
+        <div class="container">
+          <h2>About Our Academy</h2>
+          
+          <!-- Founder Section -->
+          <div class="founder-section">
+            <h3>Meet Our Founder</h3>
+            <div class="founder-column">
+              <img class="founder-image" src="founder-image.jpg" alt="Founder Image">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla gravida fringilla ipsum, id bibendum lorem efficitur id.</p>
+            </div>
+          </div>
+          
+          <!-- Other Members Section -->
+          <div class="members-section">
+            <h3>Other Important Members</h3>
+            <div class="members-row">
+              <div class="member-column">
+                <img class="member-image" src="member1-image.jpg" alt="Member 1 Image">
+                <p>Member 1 Name</p>
+              </div>
+              <div class="member-column">
+                <img class="member-image" src="member2-image.jpg" alt="Member 2 Image">
+                <p>Member 2 Name</p>
+              </div>
+              <!-- Add more member columns here -->
+            </div>
+          </div>
+          
+          <!-- Testimonials and Achievements Slider -->
+          <div class="slider-container">
+            <div class="slider">
+              <div class="slide">
+                <h3>Testimonial 1</h3>
+                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla gravida fringilla ipsum, id bibendum lorem efficitur id."</p>
+                <p><strong>John Doe</strong>, Student</p>
+              </div>
+              <div class="slide">
+                <h3>Testimonial 2</h3>
+                <p>"Ut suscipit diam et congue iaculis. Phasellus pharetra rhoncus lacus, id aliquet nisi iaculis vitae."</p>
+                <p><strong>Jane Smith</strong>, Member</p>
+              </div>
+              <!-- Add more testimonial slides here -->
+            </div>
+          </div>
+        </div>
+      </section>
+    
+
+
+
+
+
+
+
+
+
+
+    <footer>
+        <p>&copy; 2023 Chess Academy. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+
+</body>
+</html>
